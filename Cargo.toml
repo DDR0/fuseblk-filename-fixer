@@ -1,0 +1,12 @@
+[package]
+name = "fuseblk-filename-fixer"
+version = "1.0.0"
+authors = ["DDR <d@ddr0.ca>"]
+edition = "2018"
+license = "GPL-3.0"
+repository = "https://github.com/ddr0/fuseblk-filename-fixer"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+glob = "0.3.0"

@@ -1,7 +1,7 @@
 # Fuseblk Filename Fixer
 
 ```bash
-./fuseblk-filename-fixer path/to/pictures
+./fuseblk-filename-fixer --full path/to/pictures
 ```
 
 Having trouble with invalid filename issues when transfering files from a Linux machine to an external drive? Want an automated tool to fix this? FFF is a quick, opinionated program that substitutes the bad characters for good characters which look similar, so you can copy your files wherever you want.
@@ -10,7 +10,19 @@ Also cleans up Twitter file extensions, which were giving me trouble.
 
 
 ## Download
-The tool may be downloaded for x86_64 Linux systems from [https://ddr0.ca/files/release/linux/fuseblk-filename-fixer.1.0.0.tar.gz](https://ddr0.ca/files/release/linux/fuseblk-filename-fixer.1.0.0.tar.gz). (SHA1 `371f1b15792844133b2a306a00f3bec601090f72`.) For other systems, please refer to Building.
+The tool may be downloaded for x86_64 Linux systems from [https://ddr0.ca/files/release/linux/fuseblk-filename-fixer.1.1.0.tar.gz](https://ddr0.ca/files/release/linux/fuseblk-filename-fixer.1.1.0.tar.gz). (SHA1 `9f01f56a06a7fdd37c62c95123fc558716da9ab6`.) For other systems, please refer to Building.
+
+## Usage
+`fuseblk-filename-fixer [-f or -m] [-e] [-u] [-r] [path]`
+
+Defaults: `--minimal` `--extentions` and `~/Pictures/collections`
+
+Options:
+- `--full` or `-f`: Replace all Microsoft reserved strings:, `<>:\"/\\|?*`.
+- `--minimal` or `-m`: Replace a minimal set to make ext4 fuseblk work, `:?|/`.
+- `--extentions` or `-e`: Fix Twitter's mangled file extentions.
+- `--use-replacement-char` or `-r`: Use `�` instead of a Unicode homoglyph.
+
 
 ## Building
 
@@ -24,7 +36,7 @@ Invoke the binary with the path you'd like to clean. Defaults to cleaning `~/Pic
 
 ## What does it do?
 
-Current filename substitutions are:
+Current filename substitutions are, by default:
 
 | Input | Output |
 | --- | --- |

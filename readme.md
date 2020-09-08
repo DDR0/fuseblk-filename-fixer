@@ -10,7 +10,7 @@ Also cleans up Twitter file extensions, which were giving me trouble.
 
 
 ## Download
-The tool may be downloaded for x86_64 Linux systems from [https://ddr0.ca/files/release/linux/fuseblk-filename-fixer.1.1.0.tar.gz](https://ddr0.ca/files/release/linux/fuseblk-filename-fixer.1.1.0.tar.gz). (SHA1 `9f01f56a06a7fdd37c62c95123fc558716da9ab6`.) For other systems, please refer to Building.
+The tool may be downloaded for x86_64 Linux systems from [https://ddr0.ca/files/release/linux/fuseblk-filename-fixer.1.1.1.tar.gz](https://ddr0.ca/files/release/linux/fuseblk-filename-fixer.1.1.1.tar.gz). (SHA1 `ffc76c6f9d2ee65f4d237887b464fd757317e53d`.) For other systems, please refer to Building.
 
 ## Usage
 `fuseblk-filename-fixer [-f or -m] [-e] [-u] [-r] [path]`
@@ -54,3 +54,16 @@ Current filename substitutions are, by default:
 | `.jpg.jpeg` | `.jpeg` |
 
 For example, `A bird?.jpg:large` is turned into into `A bird﹖.jpg`. (Note the difference in the `?`s.)
+
+## Changelog
+- v1.1.1
+	- Silenced options echoing.
+- v1.1.0
+	- Added options as to what to clean, to make fff more generally useful.	
+		- `--full` / `-f`
+		- `--minimal` / `-m`
+		- `--extensions` / `-e`
+		- `--use-replacement-char` / `-r`
+
+- v1.0.0
+	- Initial release.

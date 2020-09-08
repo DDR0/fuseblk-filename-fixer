@@ -111,15 +111,6 @@ fn main() {
 			.to_owned() + "/Pictures/collections";
 	}
 
-	eprintln!("source_dir: {:?}", source_dir);
-	eprintln!("use_ms_reserved: {:?}", use_ms_reserved);
-	eprintln!(
-		"use_fuseblk_apparent_reserved: {:?}",
-		use_fuseblk_apparent_reserved
-	);
-	eprintln!("use_bad_extensions: {:?}", use_bad_extensions);
-	eprintln!("use_replacement_char): {:?}", use_replacement_char);
-
 	println!("Scanning for files to fix…");
 
 	let mut pattern = PathBuf::from(&source_dir);

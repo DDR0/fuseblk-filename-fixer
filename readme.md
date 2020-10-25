@@ -15,14 +15,13 @@ The tool may be downloaded for x86_64 Linux systems from [https://ddr0.ca/files/
 ## Usage
 `fuseblk-filename-fixer [-f or -m] [-e] [-u] [-r] [path]`
 
-Defaults: `--minimal` `--extentions` and `~/Pictures/collections`
-
 Options:
 - `--full` or `-f`: Replace all Microsoft reserved strings:, `<>:\"/\\|?*`.
 - `--minimal` or `-m`: Replace a minimal set to make ext4 fuseblk work, `:?|/`.
 - `--extentions` or `-e`: Fix Twitter's mangled file extentions.
 - `--use-replacement-char` or `-r`: Use `�` instead of a Unicode homoglyph.
 
+Defaults: `--minimal` `--extentions`. Path defaults to the current directory.
 
 ## Building
 
@@ -56,6 +55,8 @@ Current filename substitutions are, by default:
 For example, `A bird?.jpg:large` is turned into into `A bird﹖.jpg`. (Note the difference in the `?`s.)
 
 ## Changelog
+- v1.2.0
+	- Path defaults to `./`, not `~/pictures/collections/`.
 - v1.1.1
 	- Silenced options echoing.
 - v1.1.0

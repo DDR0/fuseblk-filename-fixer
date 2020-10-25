@@ -113,7 +113,12 @@ fn main() {
 
 	println!("Scanning for files to fix…");
 
-	let mut pattern = PathBuf::from(&source_dir);
+	let mut pattern = if source_dir == "" {
+		PathBuf::from(&source_dir)
+	} else {
+		env::current_dir()
+			.expect("Current working directory invalid; please specify a directory manually.")
+	};
 	pattern.push("**/*");
 	let pattern = pattern.to_str().expect("Invalid utf8.");
 	let mut rename_queue = Vec::new();

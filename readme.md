@@ -55,6 +55,8 @@ Current filename substitutions are, by default:
 For example, `A bird?.jpg:large` is turned into into `A bird﹖.jpg`. (Note the difference in the `?`s.)
 
 ## Changelog
+- v1.2.1
+	- Added support for fixing .png_large files & friends.
 - v1.2.0
 	- Path defaults to `./`, not `~/pictures/collections/`.
 - v1.1.1

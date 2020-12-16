@@ -31,11 +31,15 @@ const FUSEBLK_APPARENT_RESERVED_STRINGS: [(&str, &str); 4] =
 
 //Twitter and co. have a bad habit of extending filenames a bit. This breaks
 //opening the files.
-const BAD_EXTENSIONS: [(&str, &str); 8] = [
+const BAD_EXTENSIONS: [(&str, &str); 12] = [
 	(".jpg:large", ".jpg"),
 	(".jpg_large", ".jpg"),
 	(".jpg:small", ".jpg"),
 	(".jpg_small", ".jpg"),
+	(".png:large", ".png"),
+	(".png_large", ".png"),
+	(".png:small", ".png"),
+	(".png_small", ".png"),
 	(".jpeg.jpg", ".jpg"),
 	(".jpg.jpg", ".jpg"),
 	(".jpeg.jpeg", ".jpeg"),

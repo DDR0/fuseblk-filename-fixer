@@ -143,8 +143,13 @@ fn main() {
 				if use_bad_extensions {
 					for (pat, sub) in &BAD_EXTENSIONS {
 						//.iter() also works here.
-						new_file_name = new_file_name.replace(pat, sub);
+						
+						//I recognise this logic is a little flakey — if the string ends with a sequence, replace the first of the sequence — but it should be fine because the patterns are all pretty unique and start with a dot.
+						if new_file_name.ends_with(pat) {
+							new_file_name = new_file_name.replace(pat, sub);
+						}
 					}
+					
 				}
 
 				if use_ms_reserved {
@@ -159,6 +164,14 @@ fn main() {
 					}
 				} else {
 					unreachable!("These are mutually exclusive for safety. This is checked earlier, near where args are read.");
+				}
+				
+				
+				if use_ms_reserved || use_fuseblk_apparent_reserved {
+					//Special Rule: A sigular trailing period breaks fuseblk.
+					if new_file_name.ends_with(".") {
+						new_file_name.pop();
+					}
 				}
 
 				new_path.set_file_name(new_file_name);

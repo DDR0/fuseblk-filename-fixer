@@ -25,7 +25,7 @@ Defaults: `--minimal` `--extentions`. Path defaults to the current directory.
 
 ## Building
 
-With Rust installed, in the project folder, run: `cargo update` and `cargo build --release`. (Use `cargo run` to build and execute the dev binary.) You can copy the stand-alone binary from the build folder, `fuseblk-filename-fixer`, to anywhere you like on your system.
+With Rust installed, in the project folder, run: `cargo update` and `cargo build --release`. (Use `cargo run` to build and execute the dev binary.) You can copy or link the stand-alone binary from the build folder, `fuseblk-filename-fixer`, to anywhere you like on your system. Alternatively, you can add the release folder to your PATH variable.
 
 
 ## Running

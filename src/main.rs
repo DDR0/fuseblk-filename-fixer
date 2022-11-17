@@ -114,21 +114,16 @@ fn main() {
 		process::exit(1);
 	}
 
-	//Default to the path I usually call this on.
-	if source_dir == "" {
-		source_dir = env::var("HOME")
-			.expect("$HOME not set. Please specify a directory.")
-			.to_owned() + "/Pictures/collections";
-	}
-
 	println!("Scanning for files to fix…");
 
-	let mut pattern = if source_dir == "" {
-		PathBuf::from(&source_dir)
-	} else {
-		env::current_dir()
-			.expect("Current working directory invalid; please specify a directory manually.")
-	};
+	let mut pattern = 
+		if source_dir == "" {
+			env::current_dir()
+				.expect("Current working directory invalid; please specify a directory manually.")
+		} else {
+			PathBuf::from(&source_dir)
+		};
+	
 	pattern.push("**/*");
 	let pattern = pattern.to_str().expect("Invalid utf8.");
 	let mut rename_queue = Vec::new();
@@ -153,10 +148,9 @@ fn main() {
 						if new_file_name.ends_with(pat) {
 							new_file_name = new_file_name.replace(pat, sub);
 						}
-					}
-					
+					}	
 				}
-
+				
 				if use_ms_reserved {
 					for (pat, sub) in &MS_RESERVED_STRINGS {
 						new_file_name = new_file_name

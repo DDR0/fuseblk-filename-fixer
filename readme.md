@@ -35,7 +35,7 @@ Invoke the binary with the path you'd like to clean. Defaults to cleaning `~/Pic
 
 ## What does it do?
 
-Current filename substitutions are, by default:
+Current file extension substitutions are, by default:
 
 | Input | Output |
 | --- | --- |
@@ -54,7 +54,15 @@ Current filename substitutions are, by default:
 
 For example, `A bird?.jpg:large` is turned into into `A bird﹖.jpg`. (Note the difference in the `?`s.)
 
+Trailing dots are stripped if `--full` or `--minimal` is specified.
+
+Illegal characters are stripped. They are replaced their appropriate unicode homoglyphs, or, if `--use-replacement-char` is specified, by the replacement character: `�`. `--full` replaces all characters specified by the spec as being illegal. `--minimal` replaces a few that cause me trouble.
+
 ## Changelog
+- v1.3.0
+	- Strip trailing dots if not replacing extensions only.
+	- Added `"` to the minimal replacement list.
+	- Fixed incorrect logic around default file paths; it would always use the CWD.
 - v1.2.1
 	- Added support for fixing .png_large files & friends.
 - v1.2.0

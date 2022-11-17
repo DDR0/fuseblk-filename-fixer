@@ -26,8 +26,13 @@ const MS_RESERVED_STRINGS: [(&str, &str); 9] = [
 
 //As above, but the minimum I needed for my files/filesystem/driver. Most
 //notably, "<" and ">" seem to work fine, so there's no sense mangling them.
-const FUSEBLK_APPARENT_RESERVED_STRINGS: [(&str, &str); 4] =
-	[(":", "ː"), ("?", "﹖"), ("|", "⼁"), ("/", "⁄")];
+const FUSEBLK_APPARENT_RESERVED_STRINGS: [(&str, &str); 5] = [
+	(":", "ː"),
+	("?", "﹖"),
+	("|", "⼁"),
+	("/", "⁄"),
+	("\"", "“"),
+];
 
 //Twitter and co. have a bad habit of extending filenames a bit. This breaks
 //opening the files.
